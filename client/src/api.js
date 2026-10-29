@@ -1,4 +1,4 @@
-const API=import.meta.env.VITE_API_URL||'http://localhost:5001/api';
+const API=import.meta.env.VITE_API_URL||'http://localhost:5002/api';
 export function getToken(){return localStorage.getItem('token')||''}
 export function saveSession(data){localStorage.setItem('token',data.token);localStorage.setItem('user',JSON.stringify(data.user))}
 export function clearSession(){localStorage.removeItem('token');localStorage.removeItem('user')}

@@ -9,5 +9,5 @@ app.use('/api',domainRoutes);
 app.use((req,res)=>res.status(404).json({message:'Route not found'}));
 app.use((err,req,res,next)=>{console.error(err);if(err.name==='ValidationError')return res.status(400).json({message:err.message});if(err.name==='CastError')return res.status(400).json({message:'Invalid identifier'});if(err.code===11000)return res.status(409).json({message:'A record with that value already exists'});res.status(500).json({message:'Unexpected server error'});});
 const port=Number(process.env.PORT)||5002;
-if(process.env.NODE_ENV!=='test'){connectDB(process.env.MONGO_URI).then(()=>app.listen(port,()=>console.log(`{pr['name']} API listening on ${port}`))).catch(err=>{console.error('Database connection failed:',err.message);process.exit(1);});}
+if(process.env.NODE_ENV!=='test'){connectDB(process.env.MONGO_URI).then(()=>app.listen(port,()=>console.log(`ShopSphere API listening on ${port}`))).catch(err=>{console.error('Database connection failed:',err.message);process.exit(1);});}
 export default app;
